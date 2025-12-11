@@ -268,7 +268,7 @@ body {
         transform: translateX(-100%);
     }
 
-    .sidebar.active {
+    .sidebar:not(.collapsed) {
         transform: translateX(0);
     }
 

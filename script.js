@@ -1,11 +1,45 @@
 // Wait for DOM to be fully loaded
 document.addEventListener('DOMContentLoaded', function() {
+    // Constants
+    const MOBILE_BREAKPOINT = 768;
+    
     // Get elements
     const menuToggle = document.getElementById('menu-toggle');
     const sidebar = document.getElementById('sidebar');
     const mainContent = document.getElementById('main-content');
     const menuItems = document.querySelectorAll('.menu-item');
     const contentSections = document.querySelectorAll('.content-section');
+
+    // Navigate to a specific section
+    function navigateToSection(sectionId) {
+        // Remove active class from all menu items
+        menuItems.forEach(function(menuItem) {
+            menuItem.classList.remove('active');
+        });
+        
+        // Add active class to the corresponding menu item
+        const targetMenuItem = document.querySelector(`[data-section="${sectionId}"]`);
+        if (targetMenuItem) {
+            targetMenuItem.classList.add('active');
+        }
+        
+        // Hide all content sections
+        contentSections.forEach(function(section) {
+            section.classList.remove('active');
+        });
+        
+        // Show the selected section
+        const targetSection = document.getElementById(sectionId);
+        if (targetSection) {
+            targetSection.classList.add('active');
+        }
+        
+        // On mobile, close the sidebar after selecting an item
+        if (window.innerWidth <= MOBILE_BREAKPOINT) {
+            sidebar.classList.add('collapsed');
+            mainContent.classList.add('expanded');
+        }
+    }
 
     // Toggle sidebar on menu button click
     menuToggle.addEventListener('click', function() {
@@ -24,30 +58,8 @@ document.addEventListener('DOMContentLoaded', function() {
             // Get the section to show
             const sectionId = this.getAttribute('data-section');
             
-            // Remove active class from all menu items
-            menuItems.forEach(function(menuItem) {
-                menuItem.classList.remove('active');
-            });
-            
-            // Add active class to clicked item
-            this.classList.add('active');
-            
-            // Hide all content sections
-            contentSections.forEach(function(section) {
-                section.classList.remove('active');
-            });
-            
-            // Show the selected section
-            const targetSection = document.getElementById(sectionId);
-            if (targetSection) {
-                targetSection.classList.add('active');
-            }
-            
-            // On mobile, close the sidebar after selecting an item
-            if (window.innerWidth <= 768) {
-                sidebar.classList.add('collapsed');
-                mainContent.classList.add('expanded');
-            }
+            // Navigate to the section
+            navigateToSection(sectionId);
             
             // Update URL hash
             window.location.hash = sectionId;
@@ -59,13 +71,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const hash = window.location.hash.substring(1); // Remove the '#'
         
         if (hash) {
-            // Find the menu item with matching data-section
-            const targetMenuItem = document.querySelector(`[data-section="${hash}"]`);
-            
-            if (targetMenuItem) {
-                // Trigger click on the menu item
-                targetMenuItem.click();
-            }
+            navigateToSection(hash);
         }
     }
 
@@ -79,7 +85,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Handle responsive behavior
     function handleResize() {
-        if (window.innerWidth > 768) {
+        if (window.innerWidth > MOBILE_BREAKPOINT) {
             // On larger screens, ensure sidebar is visible
             sidebar.classList.remove('collapsed');
             mainContent.classList.remove('expanded');
@@ -100,7 +106,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Close sidebar when clicking outside on mobile
     document.addEventListener('click', function(event) {
-        if (window.innerWidth <= 768) {
+        if (window.innerWidth <= MOBILE_BREAKPOINT) {
             const isClickInsideSidebar = sidebar.contains(event.target);
             const isClickOnToggle = menuToggle.contains(event.target);
             
