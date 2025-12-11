@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Blog</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Menu Toggle Button -->
+    <button id="menu-toggle" class="menu-toggle" aria-label="Toggle Menu">
+        <span class="hamburger"></span>
+        <span class="hamburger"></span>
+        <span class="hamburger"></span>
+    </button>
+
+    <!-- Sidebar Menu -->
+    <nav id="sidebar" class="sidebar">
+        <div class="sidebar-header">
+            <h2>Menu</h2>
+        </div>
+        <ul class="menu-list">
+            <li><a href="#about" class="menu-item active" data-section="about">About Me</a></li>
+            <li><a href="#links" class="menu-item" data-section="links">Links</a></li>
+            <li><a href="#blog" class="menu-item" data-section="blog">Blog Posts</a></li>
+            <li><a href="#projects" class="menu-item" data-section="projects">Projects</a></li>
+            <li><a href="#contact" class="menu-item" data-section="contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Main Content Area -->
+    <main id="main-content" class="main-content">
+        <!-- About Section -->
+        <section id="about" class="content-section active">
+            <h1>About Me</h1>
+            <p>Welcome to my personal blog! This is where I share my thoughts, experiences, and interests.</p>
+            <h2>Who I Am</h2>
+            <p>I'm a passionate developer and technology enthusiast. This space serves as my digital home where I document my journey, share knowledge, and connect with like-minded individuals.</p>
+            <h2>What I Do</h2>
+            <p>I work on various projects ranging from web development to open-source contributions. I believe in continuous learning and sharing knowledge with the community.</p>
+            <h2>My Interests</h2>
+            <ul>
+                <li>Software Development</li>
+                <li>Open Source</li>
+                <li>Technology Trends</li>
+                <li>Problem Solving</li>
+            </ul>
+        </section>
+
+        <!-- Links Section -->
+        <section id="links" class="content-section">
+            <h1>Links</h1>
+            <p>Here are some useful links and resources I'd like to share:</p>
+            
+            <h2>Professional Links</h2>
+            <ul class="links-list">
+                <li><a href="https://github.com/GD-HCK" target="_blank" rel="noopener noreferrer">GitHub Profile</a></li>
+                <li><a href="#" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+                <li><a href="#" target="_blank" rel="noopener noreferrer">Twitter</a></li>
+            </ul>
+
+            <h2>Favorite Resources</h2>
+            <ul class="links-list">
+                <li><a href="https://developer.mozilla.org" target="_blank" rel="noopener noreferrer">MDN Web Docs</a></li>
+                <li><a href="https://stackoverflow.com" target="_blank" rel="noopener noreferrer">Stack Overflow</a></li>
+                <li><a href="https://github.com" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+            </ul>
+
+            <h2>Communities</h2>
+            <ul class="links-list">
+                <li><a href="#" target="_blank" rel="noopener noreferrer">Dev Community</a></li>
+                <li><a href="#" target="_blank" rel="noopener noreferrer">Tech Forums</a></li>
+            </ul>
+        </section>
+
+        <!-- Blog Posts Section -->
+        <section id="blog" class="content-section">
+            <h1>Blog Posts</h1>
+            <p>Coming soon! This section will contain my latest blog posts and articles.</p>
+            
+            <article class="blog-post">
+                <h2>Welcome to My Blog</h2>
+                <p class="post-meta">Posted on: <time datetime="2024-01-01">January 1, 2024</time></p>
+                <p>This is a placeholder for future blog posts. Stay tuned for updates on various topics related to technology, development, and my personal experiences.</p>
+            </article>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="content-section">
+            <h1>Projects</h1>
+            <p>Here are some of the projects I've worked on or am currently working on:</p>
+            
+            <div class="project-card">
+                <h2>Project 1</h2>
+                <p>Description of your first project. Add details about technologies used, challenges faced, and outcomes achieved.</p>
+            </div>
+
+            <div class="project-card">
+                <h2>Project 2</h2>
+                <p>Description of your second project. Include links to repositories, demos, or case studies.</p>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="content-section">
+            <h1>Contact</h1>
+            <p>Feel free to reach out to me through any of the following channels:</p>
+            
+            <h2>Get in Touch</h2>
+            <p>I'm always open to interesting conversations and collaboration opportunities.</p>
+            
+            <ul class="contact-list">
+                <li><strong>Email:</strong> your.email@example.com</li>
+                <li><strong>GitHub:</strong> <a href="https://github.com/GD-HCK" target="_blank" rel="noopener noreferrer">@GD-HCK</a></li>
+                <li><strong>Location:</strong> Your Location</li>
+            </ul>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
